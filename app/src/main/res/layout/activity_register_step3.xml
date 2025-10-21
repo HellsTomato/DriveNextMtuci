@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#FFFFFF"
+    android:paddingTop="100dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Верхняя панель с кнопкой назад и заголовком отдельно -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="32dp">
+
+            <!-- Кнопка назад (стрелка) в левом верхнем углу -->
+            <ImageView
+                android:id="@+id/backButton"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_arrow_back"
+                android:contentDescription="Назад"
+                android:padding="4dp" />
+
+            <!-- Заголовок по центру -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Создать аккаунт"
+                android:fontFamily="@font/montt"
+                android:textSize="24sp"
+                android:textColor="#000000"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+        <!-- Фото профиля (просто картинка без фона) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            android:layout_marginBottom="16dp">
+
+            <ImageView
+                android:id="@+id/profilePhotoImageView"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_avatar" />
+
+        </LinearLayout>
+
+        <!-- Описание под фото профиля -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Добавление фотографии поможет владельцам и арендаторам узнать друг друга, когда они будут забирать машину"
+            android:textSize="14sp"
+            android:fontFamily="@font/montt"
+            android:textColor="#666666"
+            android:gravity="center"
+            android:layout_marginBottom="32dp"
+            android:lineSpacingExtra="4dp" />
+
+        <!-- Номер водительского удостоверения -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Номер водительского удостоверения"
+            android:fontFamily="@font/montt"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/driverLicenseEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:maxLines="1"
+            android:hint="0000000000"
+            android:fontFamily="@font/montt"
+            android:background="@drawable/edit_text_background"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Дата выдачи -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Дата выдачи"
+            android:fontFamily="@font/montt"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Поле даты с иконкой календаря в начале -->
+        <EditText
+            android:id="@+id/issueDateEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none"
+            android:focusable="false"
+            android:clickable="true"
+            android:hint="DD/MM/YYYY"
+            android:fontFamily="@font/montt"
+            android:background="@drawable/edit_text_background"
+            android:padding="12dp"
+            android:drawableStart="@drawable/ic_calendar"
+            android:drawablePadding="8dp"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Заголовок для фото водительского удостоверения -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Загрузите фото водительского удостоверения"
+            android:textSize="16sp"
+            android:fontFamily="@font/montt"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Просто иконка и текст для водительского удостоверения -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="24dp">
+
+            <ImageView
+                android:id="@+id/licensePhotoImageView"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_upload"
+                android:layout_marginEnd="12dp" />
+
+            <TextView
+                android:id="@+id/uploadLicenseText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Загрузить фото"
+                android:fontFamily="@font/montt"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:clickable="true"
+                android:focusable="true" />
+
+        </LinearLayout>
+
+        <!-- Заголовок для фото паспорта -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Загрузите фото паспорта"
+            android:fontFamily="@font/montt"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Просто иконка и текст для паспорта -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="32dp">
+
+            <ImageView
+                android:id="@+id/passportPhotoImageView"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_upload"
+                android:layout_marginEnd="12dp" />
+
+            <TextView
+                android:id="@+id/uploadPassportText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Загрузить фото"
+                android:fontFamily="@font/montt"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:clickable="true"
+                android:focusable="true" />
+
+        </LinearLayout>
+
+        <!-- Кнопка Далее -->
+        <Button
+            android:id="@+id/nextButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Далее"
+            android:fontFamily="@font/montt"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/white"
+            android:enabled="false" />
+
+    </LinearLayout>
+
+</ScrollView>

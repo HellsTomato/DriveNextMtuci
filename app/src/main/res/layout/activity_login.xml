@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="24dp">
+
+        <!-- Отступ сверху чтобы сместить контент пониже -->
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <!-- Заголовок -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Войдите в аккаунт"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:fontFamily="@font/montt"
+            android:gravity="center"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Подзаголовок -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Пожалуйста, введите свои данные"
+            android:textColor="@color/gray_700"
+            android:textSize="16sp"
+            android:fontFamily="@font/montt"
+            android:gravity="center"
+            android:layout_marginBottom="40dp" />
+
+        <!-- Поле email -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Электронная почта"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:fontFamily="@font/montt"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/emailEditText"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:hint="Введите электронную почту"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:background="@drawable/edit_text_background"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:fontFamily="@font/montt"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Поле пароля -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Пароль"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:fontFamily="@font/montt"
+            android:layout_marginBottom="8px" />
+
+        <EditText
+            android:id="@+id/passwordEditText"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:hint="Введите пароль"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:background="@drawable/edit_text_background"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:fontFamily="@font/montt"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Забыли пароль по центру -->
+        <TextView
+            android:id="@+id/forgotPasswordText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Забыли пароль?"
+            android:textColor="@color/purple_700"
+            android:textSize="14sp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="32dp"
+            android:fontFamily="@font/montt"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <!-- Кнопка Войти -->
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Войти"
+            android:textSize="15sp"
+            android:fontFamily="@font/montt"
+            android:background="@color/purple_700"
+            android:textColor="@color/white"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Кнопка Войти через Google с иконкой -->
+        <Button
+            android:id="@+id/googleLoginButton"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Войти через Google"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:background="@color/white"
+            android:drawableStart="@drawable/ic_google"
+            android:drawablePadding="10dp"
+            android:fontFamily="@font/montt"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Кнопка Зарегистрироваться (только текст) -->
+        <TextView
+            android:id="@+id/registerButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Зарегистрироваться"
+            android:textColor="@color/purple_700"
+            android:textSize="16sp"
+            android:fontFamily="@font/montt"
+            android:layout_gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="16dp" />
+
+        <!-- Отступ снизу -->
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fillViewport="true"
+    android:padding="24dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Верхняя часть: стрелка назад и заголовок -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="40dp">
+
+            <ImageButton
+                android:id="@+id/backButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_arrow_back"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="12dp"
+                android:contentDescription="Назад" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Создать аккаунт"
+                android:fontFamily="@font/montt"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:gravity="center" />
+
+            <View
+                android:layout_width="48dp"
+                android:layout_height="48dp" />
+
+        </LinearLayout>
+
+        <!-- Фамилия -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Фамилия"
+            android:textColor="@color/black"
+            android:fontFamily="@font/montt"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/lastNameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:hint="Введите фамилию"
+            android:fontFamily="@font/montt"
+            android:maxLines="1"
+            android:background="@drawable/edit_text_background"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Имя -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Имя"
+            android:fontFamily="@font/montt"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/firstNameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:hint="Введите имя"
+            android:fontFamily="@font/montt"
+            android:maxLines="1"
+            android:background="@drawable/edit_text_background"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Отчество -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Отчество"
+            android:textColor="@color/black"
+            android:fontFamily="@font/montt"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/middleNameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:hint="Введите отчество"
+            android:fontFamily="@font/montt"
+            android:maxLines="1"
+            android:background="@drawable/edit_text_background"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Дата рождения с календарем слева -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Дата рождения"
+            android:fontFamily="@font/montt"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/edit_text_background"
+            android:clickable="true"
+            android:focusable="true">
+
+            <!-- Иконка календаря слева -->
+            <ImageButton
+                android:id="@+id/calendarButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_calendar"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:layout_centerVertical="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="8dp"
+                android:contentDescription="Выбрать дату" />
+
+            <!-- Поле даты с отступом слева для иконки -->
+            <EditText
+                android:id="@+id/birthDateEditText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="DD/MM/YYYY"
+                android:fontFamily="@font/montt"
+                android:inputType="none"
+                android:maxLines="1"
+                android:background="@android:color/transparent"
+                android:paddingStart="56dp"
+                android:paddingEnd="16dp"
+                android:gravity="center_vertical"
+                android:focusable="false"
+                android:clickable="false" />
+
+        </RelativeLayout>
+
+        <!-- Пол -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Пол"
+            android:fontFamily="@font/montt"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp" />
+
+        <RadioGroup
+            android:id="@+id/genderRadioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="32dp">
+
+            <RadioButton
+                android:id="@+id/maleRadioButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Мужской"
+                android:fontFamily="@font/montt"
+                android:textColor="@color/black"
+                android:buttonTint="@color/purple_700" />
+
+            <RadioButton
+                android:id="@+id/femaleRadioButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Женский"
+                android:fontFamily="@font/montt"
+                android:textColor="@color/black"
+                android:buttonTint="@color/purple_700" />
+
+        </RadioGroup>
+
+        <!-- Отступ, чтобы кнопка была внизу -->
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <!-- Кнопка Далее внизу экрана с отступом -->
+        <Button
+            android:id="@+id/nextButton"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Далее"
+            android:textSize="16sp"
+            android:enabled="false"
+            android:fontFamily="@font/montt"
+            android:textColor="@color/white"
+            android:layout_marginBottom="24dp" />
+
+    </LinearLayout>
+
+</ScrollView>

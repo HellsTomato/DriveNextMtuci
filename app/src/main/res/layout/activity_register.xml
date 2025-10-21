@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fillViewport="true"
+    android:padding="24dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Верхняя часть: стрелка назад и заголовок на одном уровне -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="60dp">
+
+            <!-- Стрелка назад -->
+            <ImageView
+                android:id="@+id/backButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_arrow_back"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="12dp"
+                android:contentDescription="Назад" />
+
+            <!-- Заголовок -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Создать аккаунт"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:fontFamily="@font/montt"
+                android:gravity="center" />
+
+            <!-- Невидимый элемент для балансировки -->
+            <View
+                android:layout_width="48dp"
+                android:layout_height="100dp" />
+
+        </LinearLayout>
+
+        <!-- Поле email -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Электронная почта"
+            android:textColor="@color/black"
+            android:fontFamily="@font/montt"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/emailEditText"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:hint="Введите электронную почту"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:background="@drawable/edit_text_background"
+            android:paddingStart="16dp"
+            android:fontFamily="@font/montt"
+            android:paddingEnd="16dp"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Поле пароля -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Придумайте пароль"
+            android:textColor="@color/black"
+            android:fontFamily="@font/montt"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/passwordEditText"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:hint="Введите пароль(от 6 символов)"
+            android:fontFamily="@font/montt"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:background="@drawable/edit_text_background"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Поле повторения пароля -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Повторите пароль"
+            android:fontFamily="@font/montt"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/confirmPasswordEditText"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:hint="Повторите пароль"
+            android:inputType="textPassword"
+            android:fontFamily="@font/montt"
+            android:maxLines="1"
+            android:background="@drawable/edit_text_background"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:layout_marginBottom="32dp" />
+
+        <!-- Чекбокс согласия с фиолетовым цветом -->
+        <CheckBox
+            android:id="@+id/termsCheckbox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Я согласен с условиями обслуживания и политикой конфиденциальности"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:fontFamily="@font/montt"
+            android:checked="false"
+            android:buttonTint="@color/purple_700"
+            android:layout_marginBottom="32dp" />
+
+        <!-- Отступ между чекбоксом и кнопкой -->
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <!-- Кнопка Далее внизу экрана -->
+        <Button
+            android:id="@+id/nextButton"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Далее"
+            android:fontFamily="@font/montt"
+            android:textSize="16sp"
+            android:enabled="false"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+</ScrollView>

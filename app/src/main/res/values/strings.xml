@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">DriveNext</string>
+    <string name="splash_title">DriveNext</string>
+    <string name="splash_subtitle">Поможем найти твою следующую поездку</string>
+    <string name="no_internet_title_line1">Нет подключения</string>
+    <string name="no_internet_title_line2">к интернету</string>
+    <string name="no_internet_subtitle">Проверьте подключение и повторите попытку</string>
+    <string name="retry_button">Повторить попытку</string>
+    <string name="no_internet_icon">Иконка отсутствия интернета</string>
+    <string name="skip_button">Пропустить</string>
+    <string name="next_button">Далее</string>
+    <string name="lets_go_button">Поехали</string>
+    <string name="onboarding_image">Изображение онбординга</string>
+    <string name="slogan">Поможем найти твою следующую поездку</string>
+    <string name="login">Войти</string>
+    <string name="register">Зарегистрироваться</string>
+    <string name="create_account">Создать аккаунт</string>
+    <string name="photo_help_description">Добавление фотографии поможет владельцам и арендаторам узнать друг друга, когда они будут забирать машину</string>
+    <string name="driver_license_number">Номер водительского удостоверения</string>
+    <string name="issue_date">Дата выдачи</string>
+    <string name="upload_license_photo">Загрузите фото водительского удостоверения</string>
+    <string name="upload_passport_photo">Загрузите фото паспорта</string>
+    <string name="upload_photo">Загрузить фото</string>
+    <string name="photo_uploaded">Фото загружено</string>
+</resources>
+

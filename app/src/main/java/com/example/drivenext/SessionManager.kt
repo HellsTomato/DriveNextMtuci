@@ -1,7 +1,10 @@
 package com.example.drivenext
 
+// Context — нужен, чтобы получить доступ к системным функциям (файлы, настройки, сервисы).
 import android.content.Context
+// SharedPreferences — встроенный класс Android для хранения простых настроек.
 import android.content.SharedPreferences
+// androidx.core.content.edit — упрощённая версия prefs.edit { ... }, чтобы не писать val editor = ... вручную.
 import androidx.core.content.edit
 
 

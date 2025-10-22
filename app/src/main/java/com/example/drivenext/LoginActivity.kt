@@ -1,17 +1,27 @@
 package com.example.drivenext
 
+// переход на другие экраны.
 import android.content.Intent
+// данные, передаваемые в onCreate.
 import android.os.Bundle
+// чтобы реагировать на ввод текста в полях (email/пароль).
 import android.text.Editable
 import android.text.TextWatcher
+// короткие всплывающие сообщения.
 import android.widget.Toast
+// базовый класс Activity.
 import androidx.appcompat.app.AppCompatActivity
+// класс ViewBinding, сгенерированный из activity_login.xml (даёт доступ к view без findViewById).
 import com.example.drivenext.databinding.ActivityLoginBinding
+// регулярные выражения (валидация email).
 import java.util.regex.Pattern
 
+// Объявление Activity и поля
 class LoginActivity : AppCompatActivity() {
 
+    // ViewBinding, позволяет обращаться к элементам activity_login.xml как к полям binding.
     private lateinit var binding: ActivityLoginBinding
+    // доступ к SharedPreferences (токен, флаги).
     private lateinit var sessionManager: SessionManager
 
     // Регулярное выражение для базовой валидации email
@@ -20,7 +30,7 @@ class LoginActivity : AppCompatActivity() {
     )
 
     // Временный список "зарегистрированных" пользователей для демонстрации
-    private val registeredUsers = mapOf(
+    private val registeredUsers = mapOf( // имитация БД: словарь “email → пароль”
         "user@example.com" to "password123",
         "test@example.com" to "123456",
         "admin@example.com" to "admin123"
@@ -29,14 +39,15 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityLoginBinding.inflate(layoutInflater)
+        binding = ActivityLoginBinding.inflate(layoutInflater) // создаёт объект биндинга из XML.
         setContentView(binding.root)
 
-        sessionManager = SessionManager(this)
-        setupViews()
-        setupTextWatchers()
+        sessionManager = SessionManager(this) // готовим хранилище токена.
+        setupViews() // навешиваем обработчики (кнопки).
+        setupTextWatchers() // подписываемся на ввод в полях.
     }
 
+    // Инициализация кнопок и действий
     private fun setupViews() {
         // Изначально кнопка неактивна
         binding.loginButton.isEnabled = false
@@ -62,10 +73,15 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    // Слушатели текста (валидация на лету)
+    // как только пользователь вводит символ — вызывается validateForm() (вкл/выкл кнопку входа).
     private fun setupTextWatchers() {
-        val textWatcher = object : TextWatcher {
+        val textWatcher = object : TextWatcher { // интерфейс: три метода. Мы используем afterTextChanged, чтобы проверять форму после каждого изменения.
+            // пользователь ставит курсор и начинает печатать
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            // он вводит буквы
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+            // он закончил ввод (система обновила поле)
             override fun afterTextChanged(s: Editable?) {
                 validateForm()
             }
@@ -76,15 +92,17 @@ class LoginActivity : AppCompatActivity() {
         binding.passwordEditText.addTextChangedListener(textWatcher)
     }
 
+    // Проверка заполненности формы - простая UX-валидация: не даём жать “Войти” с пустыми полями.
     private fun validateForm() {
-        val email = binding.emailEditText.text.toString().trim()
+        val email = binding.emailEditText.text.toString().trim() // убираем пробелы в начале/конце.
         val password = binding.passwordEditText.text.toString().trim()
 
         // Кнопка активна только когда оба поля заполнены
-        val isFormValid = email.isNotEmpty() && password.isNotEmpty()
-        binding.loginButton.isEnabled = isFormValid
+        val isFormValid = email.isNotEmpty() && password.isNotEmpty() // оба поля должны быть непустыми.
+        binding.loginButton.isEnabled = isFormValid // включаем/выключаем кнопку.
     }
 
+    // Полная проверка перед логином - защитились от очевидных ошибок ввода перед “логином”
     private fun performLoginWithValidation() {
         val email = binding.emailEditText.text.toString().trim()
         val password = binding.passwordEditText.text.toString().trim()
@@ -106,13 +124,15 @@ class LoginActivity : AppCompatActivity() {
             return
         }
 
-        performLogin(email, password)
+        performLogin(email, password) // всё ок
     }
 
+    // Проверка формата email (регулярка) - вынесенная функция, чтобы код читался проще.
     private fun isValidEmail(email: String): Boolean {
-        return EMAIL_PATTERN.matcher(email).matches()
+        return EMAIL_PATTERN.matcher(email).matches() // проверяет, соответствует ли email шаблону
     }
 
+    // Логин (имитация) + сохранение токена
     private fun performLogin(email: String, password: String) {
         // Имитация проверки учетных данных
         when {
@@ -132,6 +152,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    // Логин через Google (заглушка) - кнопка “Google” просто делает вид, что авторизовала, и сохраняет токен.
     private fun performGoogleLogin() {
         // TODO: Реализовать Google OAuth
         // Временная имитация
@@ -139,18 +160,21 @@ class LoginActivity : AppCompatActivity() {
         navigateToMain()
     }
 
+    // “Забыли пароль” (заглушка)
     private fun showForgotPassword() {
         Toast.makeText(this, "Функция восстановления пароля в разработке", Toast.LENGTH_SHORT).show()
     }
 
+    // Переход на регистрацию
     private fun navigateToRegistration() {
-        val intent = Intent(this, RegisterActivity::class.java)
-        startActivity(intent)
+        val intent = Intent(this, RegisterActivity::class.java) // открыть экран регистрации.
+        startActivity(intent) // выполняем переход.
     }
 
+    // Переход в Main и закрытие Login
     private fun navigateToMain() {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
-        finish()
+        finish() // закрываем LoginActivity, чтобы по Back не вернуться на логин.
     }
 }
